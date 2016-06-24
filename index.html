@@ -21,7 +21,7 @@
 
       var setCssVariant(variant)
       {
-      var css = "body {
+      var css = `body {
     font-family: Profont, monospace, Courier, monospace;
     margin: 0;
     padding: 1em;
@@ -49,7 +49,7 @@ ul {
 div > ul {
     padding-bottom: 10px;
 }
-"
+`
       if (0 === variant)
       {
 var style_tag = document.getElementsByTagName("style")[0];
