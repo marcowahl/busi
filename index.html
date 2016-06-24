@@ -21,7 +21,11 @@
 
       var setCssVariant = function (variant)
       {
-      var css = `body {
+
+      if (0 === variant)
+      {
+var style_tag = document.getElementsByTagName("style");
+style_tag[0].innerHTML = `body {
     font-family: Profont, monospace, Courier, monospace;
     margin: 0;
     padding: 1em;
@@ -50,10 +54,6 @@ div > ul {
     padding-bottom: 10px;
 }
 `
-      if (0 === variant)
-      {
-var style_tag = document.getElementsByTagName("style");
-style_tag[0].innerHTML = "body {background-color: red;}";
 }
       }
     </script>
