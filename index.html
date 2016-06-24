@@ -6,11 +6,26 @@
     <meta name="robots" content="index,follow"/>
     <style type="text/css">
 
-body {
+
+    </style>
+    <script>
+      var cssvariant = 0
+
+      var switcher = function () {
+      cssvariant += 1
+      if (2 == cssvariant) {
+      cssvariant = 0
+      }
+      setCssVariant(cssvariant)
+      }
+
+      var setCssVariant(variant)
+      {
+      var css = "body {
     font-family: Profont, monospace, Courier, monospace;
     margin: 0;
     padding: 1em;
-    background-image: url("./Internet_map_1024_-_transparent.png");
+    background-image: url('./Internet_map_1024_-_transparent.png');
     background-attachment: fixed;
 }
 
@@ -34,16 +49,12 @@ ul {
 div > ul {
     padding-bottom: 10px;
 }
-
-    </style>
-    <script>
-      var cssvariant = 0
-      var switcher = function () {
-      cssvariant += 1
-      if (2 == cssvariant) {
-      cssvariant = 0
-      }
-      setCssVariant(cssvariant)
+"
+      if (0 == variant)
+      {
+var style_tag = document.getElementsByTagName("style");
+style_tag.innerHtml = css;
+}
       }
     </script>
   </head>
