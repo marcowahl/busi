@@ -37,8 +37,14 @@ div > ul {
 
     </style>
     <script>
-      var switcher = function () { alert ("haha") }
-
+      var cssvariant = 0
+      var switcher = function () {
+      cssvariant += 1
+      if (2 == cssvariant) {
+      cssvariant = 0;
+      alert ("haha")
+      }
+      }
     </script>
   </head>
   <body>
