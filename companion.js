@@ -79,6 +79,7 @@ function darkCSS() {
     `
     body {
 filter: invert(100%);
+background-image: none;
 background-color: black;
 }
 `
