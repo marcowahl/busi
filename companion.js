@@ -47,7 +47,7 @@ function lightCSS() {
     font-family: Profont, monospace, Courier, monospace;
     margin: 0;
     padding: 1em;
-    background-image: url('./Internet_map_1024_-_transparent.png');
+    background-image: url('./internet-transparent.jpg');
     background-attachment: fixed;
 }
 
