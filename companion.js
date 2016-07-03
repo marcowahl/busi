@@ -31,11 +31,11 @@ var setVariant = function (variant) {
     var button = document.getElementById("switcher-button");
     if (0 === variant)
     {
-        button.innerHTML = "Wechsel zu dunklerer Anzeige"
+        button.innerHTML = "Wechsel zur Nachtansicht"
         style_tag[0].innerHTML = lightCSS()
     }
     else if (1 === variant) {
-        button.innerHTML = "Wechsel zu hellerer Anzeige"
+        button.innerHTML = "Wechsel zur Tagesansicht"
         style_tag[0].innerHTML = darkCSS()
     }
     else { alert ("There is a disturbance in this program."); }
