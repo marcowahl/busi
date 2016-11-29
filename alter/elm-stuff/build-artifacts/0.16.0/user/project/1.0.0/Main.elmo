@@ -20,16 +20,32 @@ Elm.Main.make = function (_elm) {
                                                    ,{ctor: "_Tuple2",_0: "display",_1: "inline-block"}
                                                    ,{ctor: "_Tuple2",_0: "width",_1: "50px"}
                                                    ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}]));
-   var update = F2(function (action,model) {    var _p0 = action;if (_p0.ctor === "Increment") {    return model + 1;} else {    return model - 1;}});
-   var Decrement = {ctor: "Decrement"};
-   var Increment = {ctor: "Increment"};
+   var brightnessButtText = function (model) {
+      var _p0 = model;
+      if (_p0.ctor === "Light") {
+            return "Wechsel zur Nachtsicht";
+         } else {
+            return "Wechsel zur Tagesansicht";
+         }
+   };
+   var Toggle = {ctor: "Toggle"};
    var view = F2(function (address,model) {
       return A2($Html.div,
       _U.list([]),
-      _U.list([A2($Html.button,_U.list([A2($Html$Events.onClick,address,Decrement)]),_U.list([$Html.text("-")]))
-              ,A2($Html.div,_U.list([countStyle]),_U.list([$Html.text($Basics.toString(model))]))
-              ,A2($Html.button,_U.list([A2($Html$Events.onClick,address,Increment)]),_U.list([$Html.text("+")]))]));
+      _U.list([A2($Html.div,_U.list([countStyle]),_U.list([$Html.text($Basics.toString(model))]))
+              ,A2($Html.button,_U.list([A2($Html$Events.onClick,address,Toggle)]),_U.list([$Html.text(brightnessButtText(model))]))]));
    });
-   var main = $StartApp$Simple.start({model: 0,update: update,view: view});
-   return _elm.Main.values = {_op: _op,Increment: Increment,Decrement: Decrement,update: update,view: view,countStyle: countStyle,main: main};
+   var Dark = {ctor: "Dark"};
+   var Light = {ctor: "Light"};
+   var update = F2(function (action,model) {    return _U.eq(Light,model) ? Dark : Light;});
+   var main = $StartApp$Simple.start({model: Light,update: update,view: view});
+   return _elm.Main.values = {_op: _op
+                             ,Light: Light
+                             ,Dark: Dark
+                             ,Toggle: Toggle
+                             ,update: update
+                             ,brightnessButtText: brightnessButtText
+                             ,view: view
+                             ,countStyle: countStyle
+                             ,main: main};
 };
