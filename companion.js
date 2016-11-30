@@ -44,57 +44,11 @@ var setVariant = function (variant) {
     if (0 === variant)
     {
         button.innerHTML = "Wechsel zur Nachtansicht"
-        style_tag[0].innerHTML = lightCSS()
+        document.getElementById('css2').href = 'empty.css';
     }
     else if (1 === variant) {
         button.innerHTML = "Wechsel zur Tagesansicht"
-        style_tag[0].innerHTML = darkCSS()
+        document.getElementById('css2').href = 'dark.css';
     }
-    else { alert ("There is a disturbance in this program."); }
-
+    else { alert ("There is a serious disturbance in this program."); }
 }
-
-function lightCSS() {
-    return `body {
-    font-family: Profont, monospace, Courier, monospace;
-    margin: 0;
-    padding: 1em;
-    background-image: url('./internet-transparent.jpg');
-    background-attachment: fixed;
-}
-
-#main-statement {
-    text-align:left;
-}
-
-ul {
-    list-style-type: none;
-}
-
-.relevant-text {
-    background-color: #fff;
-    opacity: 0.8;
-}
-
-.blurred {
-    font-size: 70%;
-}
-
-div > ul {
-    padding-bottom: 10px;
-}
-`
-}
-
-function darkCSS() {
-    return lightCSS() +
-    `
-    body {
-filter: invert(100%);
-background-image: none;
-background-color: black;
-}
-`
-}
-
-// (function () {setVariant(0)})()

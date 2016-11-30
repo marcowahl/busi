@@ -31,3 +31,7 @@ div.noscriptmsg {
     font-family: Courier;
     border: 1px solid red;
 }
+
+div.javascriptonly {
+    text-align:right;
+}
