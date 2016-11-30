@@ -28,6 +28,6 @@ div > ul {
 }
 
 div.noscriptmsg {
-    font-size: 50%;
+    font-family: Courier;
     border: 1px solid red;
 }
