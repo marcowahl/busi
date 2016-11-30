@@ -18,6 +18,18 @@
 
 var variant = 0
 
+var init = function () {
+    setVariant(0);
+    showJavascriptOnlyElements();
+}
+
+var showJavascriptOnlyElements = function() {
+    var elements = document.getElementsByClassName("javascriptonly");
+    for (var ii = 0; ii < elements.length; ii++) {
+        elements[ii].style.display = "block"
+    }
+}
+
 var switcher = function () {
     variant += 1
     if (2 === variant) {
