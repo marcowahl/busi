@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-  <head>
-    <title>Marco Wahl -- Softwareentwicklung und Beratung</title>
-    <meta charset="utf-8"/>
-    <meta name="robots" content="index,follow"/>
-    <style type="text/css"></style>
-    <script src="companion.js"></script>
-  </head>
-  <noscript>
-    <!-- <link href="css/style.css" rel="stylesheet" type="text/css" media="all"> -->
-    <link href="light.css"  rel="stylesheet">
+<head>
+  <title>Marco Wahl -- Softwareentwicklung und Beratung</title>
+  <meta charset="utf-8"/>
+  <meta name="robots" content="index,follow"/>
+  <style type="text/css"></style>
+  <script src="companion.js"></script>
+</head>
+<noscript>
+  <!-- <link href="css/style.css" rel="stylesheet" type="text/css" media="all"> -->
+  <link href="light.css"  rel="stylesheet">
     <div class="noscriptmsg">
-      Javascript ist ausgeschaltet.  Alle auf Javascript basierenden
-      Funktionalitäten sind damit funktionsuntüchtig.
+      JavaScript ist nicht aktiv.  Aktivieren Sie JavaScript für
+      weitere Funktionen dieser Webseite.
     </div>
   </noscript>
-  <body onload="setVariant(0)">
-    <button id="switcher-button" onclick="switcher()">Night View</button>
+  <body onload="init()">
+    <div class="javascriptonly" style="display:none">
+      <button id="switcher-button" onclick="switcher()">Night View</button>
+    </div>
     <h1><span class="relevant-text">Marco Wahl</span></h1>
     <span class="relevant-text">Programmierung und Beratung in Softwaredingen</span>
     <div class="relevant-text">
@@ -98,6 +100,6 @@
     </p>
   </body>
 
-<!-- Local Variables: -->
-<!-- eval: (git-auto-commit-mode) -->
-<!-- End: -->
+  <!-- Local Variables: -->
+  <!-- eval: (git-auto-commit-mode) -->
+  <!-- End: -->
