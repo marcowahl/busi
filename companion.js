@@ -16,15 +16,27 @@
 // along with this program. If not, see
 // <http://www.gnu.org/licenses/>.
 
+'use strict'
+
 var variant = 0
 
 var init = function () {
-    setVariant(0);
-    showJavascriptOnlyElements();
+    showJavascriptOnlyElements()
+    setVariant(0)
+    littleIntroDance()
+}
+
+function sleep (ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+var littleIntroDance = function () {
+    setTimeout(switcher, 1000)
+    setTimeout(switcher, 3000)
 }
 
 var showJavascriptOnlyElements = function() {
-    var elements = document.getElementsByClassName("javascriptonly");
+    var elements = document.getElementsByClassName("javascriptonly")
     for (var ii = 0; ii < elements.length; ii++) {
         elements[ii].style.display = "block"
     }
@@ -32,23 +44,21 @@ var showJavascriptOnlyElements = function() {
 
 var switcher = function () {
     variant += 1
-    if (2 === variant) {
-        variant = 0
-    }
+    variant %= 2
     setVariant(variant)
 }
 
 var setVariant = function (variant) {
     var style_tag = document.getElementsByTagName("style")
-    var button = document.getElementById("switcher-button");
+    var button = document.getElementById("switcher-button")
     if (0 === variant)
     {
         button.innerHTML = "Wechsel zur Nachtansicht"
-        document.getElementById('css2').href = 'empty.css';
+        document.getElementById('css2').href = 'empty.css'
     }
     else if (1 === variant) {
         button.innerHTML = "Wechsel zur Tagesansicht"
-        document.getElementById('css2').href = 'dark.css';
+        document.getElementById('css2').href = 'dark.css'
     }
-    else { alert ("There is a serious disturbance in this program."); }
+    else { alert ("There is a serious disturbance in this program.") }
 }

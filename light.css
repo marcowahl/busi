@@ -1,9 +1,13 @@
+* {
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
 body {
     font-family: Profont, monospace, Courier, monospace;
     margin: 0;
     padding: 1em;
-    background-image: url('./internet-transparent.jpg');
-    background-attachment: fixed;
+
 }
 
 #main-statement {
@@ -12,11 +16,6 @@ body {
 
 ul {
     list-style-type: none;
-}
-
-.relevant-text {
-    background-color: #fff;
-    opacity: 0.8;
 }
 
 .blurred {
