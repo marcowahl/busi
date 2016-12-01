@@ -26,10 +26,6 @@ var init = function () {
     littleIntroDance()
 }
 
-function sleep (ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 var littleIntroDance = function () {
     setTimeout(switcher, 1000)
     setTimeout(switcher, 3000)
