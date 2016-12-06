@@ -28,6 +28,10 @@ var init = function () {
     performInitialBlinks()
 }
 
+var actionColorSchemeToggle = function () {
+    switcher()
+}
+
 var performInitialBlinks = function () {
     if ( blinksPerformed < maxBlinks ) {
         switcher();
