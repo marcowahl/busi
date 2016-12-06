@@ -19,20 +19,21 @@
 'use strict'
 
 var variant = 0
-var userDecision = false
+var blinksPerformed = 0
+var maxBlinks = 2
+var blinkDuration = 1000 // ms
 
 var init = function () {
     showJavascriptOnlyElements()
-    setVariant(0)
-
-
-    blinkUntilUserDecision()
+    performInitialBlinks()
 }
 
-var blinkUntilUserDecision = function () {
-    if (!userDecision) {
+var performInitialBlinks = function () {
+    if ( blinksPerformed < maxBlinks ) {
         switcher();
-        setTimeout(blinkUntilUserDecision, 1000)
+        setButtonTextVariant(variant)
+        blinksPerformed += 1
+        setTimeout(performInitialBlinks, blinkDuration)
     }
 }
 
@@ -43,21 +44,11 @@ var showJavascriptOnlyElements = function() {
     }
 }
 
-var setColorScheme = function ()
-{
-    userDecision = true
-    setButtonTextVariant(variant)
-    setVariant (variant)
-    setColorScheme = switcher
-}
-
 var switcher = function () {
     variant += 1
     variant %= 2
     setVariant(variant)
-    if (userDecision)
-        setButtonTextVariant(variant)
-
+    setButtonTextVariant(variant)
 }
 
 var setButtonTextVariant = function(variant) {
