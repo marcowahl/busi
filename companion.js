@@ -19,16 +19,21 @@
 'use strict'
 
 var variant = 0
+var userDecision = false
 
 var init = function () {
     showJavascriptOnlyElements()
     setVariant(0)
-    littleIntroDance()
+
+
+    blinkUntilUserDecision()
 }
 
-var littleIntroDance = function () {
-    setTimeout(switcher, 1000)
-    setTimeout(switcher, 3000)
+var blinkUntilUserDecision = function () {
+    if (!userDecision) {
+        switcher();
+        setTimeout(blinkUntilUserDecision, 1000)
+    }
 }
 
 var showJavascriptOnlyElements = function() {
@@ -38,22 +43,41 @@ var showJavascriptOnlyElements = function() {
     }
 }
 
+var setColorScheme = function ()
+{
+    userDecision = true
+    setButtonTextVariant(variant)
+    setVariant (variant)
+    setColorScheme = switcher
+}
+
 var switcher = function () {
     variant += 1
     variant %= 2
     setVariant(variant)
+    if (userDecision)
+        setButtonTextVariant(variant)
+
 }
+
+var setButtonTextVariant = function(variant) {
+    var button = document.getElementById("switcher-button")
+    if (0 === variant)
+        button.innerHTML = "Wechsel zur Nachtansicht"
+    else if (1 === variant)
+        button.innerHTML = "Wechsel zur Tagesansicht"
+    else    {
+        alert ("internal logic error")
+    }
+    }
 
 var setVariant = function (variant) {
     var style_tag = document.getElementsByTagName("style")
-    var button = document.getElementById("switcher-button")
     if (0 === variant)
     {
-        button.innerHTML = "Wechsel zur Nachtansicht"
         document.getElementById('css2').href = 'empty.css'
     }
     else if (1 === variant) {
-        button.innerHTML = "Wechsel zur Tagesansicht"
         document.getElementById('css2').href = 'dark.css'
     }
     else { alert ("There is a serious disturbance in this program.") }
