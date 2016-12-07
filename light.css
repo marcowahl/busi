@@ -46,3 +46,9 @@ div.center {
         width:100%;
     }
 }
+
+div#validator-intro-text {
+    float: left;
+    margin-top: 10px;
+    margin-right: 1em;
+}
