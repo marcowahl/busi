@@ -12,7 +12,11 @@ body {
     font-family: Profont, monospace, Courier, monospace;
     margin: 0;
     padding: 1em;
+}
 
+button {
+    font-family: Profont, monospace, Courier, monospace;
+    font-size: 0.7em;
 }
 
 #main-statement {
