@@ -7,6 +7,8 @@
   <link id="css1" href="light.css" type="text/css" rel="stylesheet"/>
   <link id="css2" href="empty.css" type="text/css" rel="stylesheet"/>
   <script src="companion.js"></script>
+  <script src="jquery-3.1.1.js"></script>
+  <script src="graphics.js"></script>
 </head>
 <body onload="init()">
   <noscript>
@@ -23,63 +25,70 @@
       <button id="switcher-button" onclick="actionColorSchemeToggle()">Button</button>
     </div>
   </div>
-  <h1>Marco Wahl</h1>
-  Programmierung und Beratung in Softwaredingen
   <div>
-    <h3>Angebot</h3>
-    <ul id="main-statement">
-      <li>Ergänzung Ihres Teams in den Bereichen</li>
-      <li>
-        <ul id="gaa">
-	  <li>Softwareentwicklung</li>
-	  <li>Softwaretest</li>
-	  <li>Softwareadministration</li>
-	</ul>
-      </li>
-      <li>Realisierung von individuellen Webauftritten</li>
-      <li>Beratung</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Expertise</h3>
-    <ul>
-      <li>C++, Lisp, Python, Django, Linux, Emacs</li>
-    </ul>
-  </div>
+    <h1>Marco Wahl</h1>
+    Programmierung und Beratung in Softwaredingen
+    <div>
+      <h3>Angebot
+      <canvas id="graphicsCanvas">Canvas element not displayed properly.
+      You can try a different browser.
+      </canvas>
+
+      </h3>
+      <ul id="main-statement">
+        <li>Beratung und Unterstützung in den Bereichen</li>
+        <li>
+          <ul id="gaa">
+            <li>Softwareentwicklung</li>
+            <li>Test</li>
+            <li>Administration</li>
+            <li>Individuelle Webauftritte</li>
+            <li>Schulung</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Expertise</h3>
+      <ul>
+        <li>C++, Lisp, Python, Django, Linux, Emacs</li>
+      </ul>
+    </div>
     <div>
       <h3>Software</h3>
       <ul>
         <li><a
-        href="https://greasyfork.org/en/users/12730-marcowahl">Erweiterungen
+                href="https://greasyfork.org/en/users/12730-marcowahl">Erweiterungen
         für den Browser (1)</a></li>
         <li>
-        <a href="https://userstyles.org/users/341489">Erweiterungen
+          <a href="https://userstyles.org/users/341489">Erweiterungen
         für den Browser (2)</a></li>
         <li><a href="https://github.com/marcowahl">github.com/marcowahl</a></li>
         <li><a href="https://gist.github.com/marcowahl">gist.github.com/marcowahl</a></li>
         <li><a
-        href="https://gitlab.com/marcowahl">gitlab.com/marcowahl</a></li>
+                href="https://gitlab.com/marcowahl">gitlab.com/marcowahl</a></li>
       </ul>
     </div>
-  <div>
-    <h3>Kontakt</h3>
-    <ul>
-      <li>
-        Ich freue mich auf Ihre Anfrage.
-      </li>
-    </ul>
-    <ul>
-      <li>Marco Wahl</li>
-      <li>+49 176 4301 7069</li>
-      <li><a href="mailto:marcowahlsoft@gmail.com">marcowahlsoft@gmail.com</a></li>
-      <li>
-        <ul>
-          <li>Fingerprint: 0x3e7c2cbacbabda5bd6995a4c49010a040a3ae6f2</li>
-          <li>Schlüssel (auf Keyserver):
-          <a href="http://pgp.mit.edu/pks/lookup?op=get&amp;search=0x49010A040A3AE6F2">0x49010A040A3AE6F2</a></li>
-        </ul>
-      </li>
-    </ul>
+    <div>
+      <h3>Kontakt</h3>
+      <ul>
+        <li>
+          Ich freue mich auf Ihre Anfrage.
+        </li>
+      </ul>
+      <ul>
+        <li>Marco Wahl</li>
+        <li>+49 176 4301 7069</li>
+        <li><a href="mailto:marcowahlsoft@gmail.com">marcowahlsoft@gmail.com</a></li>
+        <li>
+          <ul>
+            <li>Fingerprint: 0x3e7c2cbacbabda5bd6995a4c49010a040a3ae6f2</li>
+            <li>Schlüssel (auf Keyserver):
+            <a href="http://pgp.mit.edu/pks/lookup?op=get&amp;search=0x49010A040A3AE6F2">0x49010A040A3AE6F2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="blurred">
     <h3>Impressum</h3>
