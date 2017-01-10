@@ -55,6 +55,7 @@ div#validator-intro-text {
     float: left;
     margin-top: 10px;
     margin-right: 1em;
+    font-size: 50%;
 }
 
 div#validator-icon a img {
