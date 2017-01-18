@@ -12,6 +12,11 @@ body {
     font-family: Profont, monospace, Courier, monospace;
     margin: 0;
     padding: 1em;
+
+}
+
+body {
+  background: url('https://media.giphy.com/media/l4q8hbpF90qOBUZOw/source.gif');
 }
 
 button {
