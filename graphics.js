@@ -20,14 +20,31 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-function Properties(){
-    this.numberOfDots = 2,
-    this.dotSpeed = 0,
-    this.dotRadius = 0,
-    this.lineWidth = 3,
-    this.rayPieces = 6,
-    this.rayRandomise = 10,
-    this.speed = 200
+// function assert(condition, message) {
+//     if (!condition) {
+//         throw message || "Assertion failed";
+//     }
+// }
+
+// function assert(condition, message) {
+//     if (!condition) {
+//         message = message || "Assertion failed";
+//         if (typeof Error !== "undefined") {
+
+//             throw new Error(message);
+//         }
+//         throw message; // Fallback
+//     }
+// }
+
+function Properties() {
+    this.lineWidth = 2
+    this.speed = 100
+    this.frame_number_max
+    this.canvas_w = 40
+    this.canvas_h = 30
+    this.rayPieces = 6
+    this.rayRandomise = 10
 }
 
 var dots = [],
@@ -37,13 +54,9 @@ var dots = [],
     ctx;
 
 $(document).ready(function() {
-    // var gui = new dat.GUI();
-    // gui.add(properties, 'rayPieces', 1, 20).step(1);
-    // gui.add(properties, 'rayRandomise', 1, 100);
-    // gui.add(properties, 'speed', 1, 100);
     canvas = document.getElementById("graphicsCanvas");
-    canvas.width = 20 // $( window ).width();
-    canvas.height = 20 // $( window ).height();
+    canvas.width = properties.canvas_w
+    canvas.height = properties.canvas_h
     ctx = canvas.getContext("2d");
     dotLengthThreshold = Math.min(canvas.width, canvas.height) / 2;
     inito();
@@ -51,14 +64,27 @@ $(document).ready(function() {
 });
 
 function inito(){
-  iterate();
+    var sheer_delta = 0.1
+    iterate(0, sheer_delta);
 }
 
-function iterate(){
-  clearCanvas();
-  drawLightning(canvas.width*.5, canvas.height*.2, canvas.width*.5, canvas.height*.8);
-  //change to requestAnimationFrame(iterate) to see it's performance
-  setTimeout(function() {iterate()}, properties.speed);
+function iterate(sheer, sheer_delta) {
+    clearCanvas();
+    drawArc(properties.canvas_w/2 + properties.canvas_w/10, properties.canvas_w/4,
+            properties.canvas_h/10, 0.8*properties.canvas_h, sheer)
+    var sheer_max = 1.0
+    if (sheer + sheer_delta > sheer_max) {
+        sheer_delta = -sheer_delta
+        sheer = sheer_max
+    } else if (sheer + sheer_delta < -sheer_max) {
+        sheer_delta = -sheer_delta
+        sheer = -sheer_max
+    } else {
+        sheer = sheer + sheer_delta
+    }
+    setTimeout(function() {
+        iterate(sheer, sheer_delta)
+    }, properties.speed)
 }
 
 function clearCanvas(){
@@ -66,6 +92,32 @@ function clearCanvas(){
     ctx.fillStyle=(variant===0?"#FFFFFF":"#000000")
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     ctx.restore()
+}
+
+function drawArc(offsetw, width, offseth, height, sheer) {
+    ctx.save()
+    ctx.shadowColor = (variant===0?"#000000":"#FFFFFF")
+    ctx.shadowBlur = 3
+    ctx.beginPath()
+    ctx.moveTo(offsetw, offseth)
+    for (var ii = 0; ii < height+1; ii=ii+1) {
+        ctx.lineTo(offsetw +
+                   sheer * width * Math.sqrt(1 - Math.min(1, (2.0 * (ii/height-0.5))
+                                                          *(2.0 * (ii/height-0.5))) ),
+                   offseth + ii )
+    }
+    ctx.moveTo(offsetw, offseth)
+    for (var ii = 0; ii < height+1; ii=ii+1) {
+        ctx.lineTo(offsetw -
+                   sheer * width * Math.sqrt(1 - Math.min(1, (2.0 * (ii/height-0.5))
+                                                          *(2.0 * (ii/height-0.5))) ),
+                   offseth + ii )
+    }
+    ctx.strokeStyle = "rgb(255, 100, 0)";
+    ctx.lineWidth = properties.lineWidth;
+    ctx.lineCap="round";
+    ctx.stroke();
+    ctx.restore();
 }
 
 function drawLightning(x1,y1, x2,y2){
