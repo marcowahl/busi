@@ -15,11 +15,6 @@ body {
 
 }
 
-body {
-  background: url('matrix.gif');
-  background-size: 100%;
-}
-
 button {
     font-family: Profont, monospace, Courier, monospace;
     font-size: 0.7em;
