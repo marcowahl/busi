@@ -25,7 +25,7 @@ var blinkDuration = 1000 // ms
 
 var init = function () {
     showJavascriptOnlyElements()
-    performInitialBlinks()
+//    performInitialBlinks()
 }
 
 var actionColorSchemeToggle = function () {
