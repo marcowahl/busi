@@ -1,0 +1,15 @@
+
+
+* this is my contact page
+
+* build the page
+
+** the basics
+
+- the page is everything that is in folder docs/.
+- website is at https://marcowahl.github.io/busi
+- note :: repo name is busi.
+
+** fill folder docs
+
+- [2019-10-20 Sun 20:52] observation: this is done by foot.
